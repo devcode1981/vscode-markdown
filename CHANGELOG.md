@@ -1,8 +1,75 @@
-## 3.x
+## 3.6.0/3.6.1 (2024.01.08)
+
+### New
+
+- [Completion] Add an option `completion.enabled` which allows to re-enable the path completion provided by this extension ([#1258](https://github.com/yzhang-gh/vscode-markdown/issues/1258)).
+- [Export] Add a right-click menu entry for the command `printToHtml` ([#1278](https://github.com/yzhang-gh/vscode-markdown/pull/1278)). Thanks, [Dihong Luo (@Andy-Dihong-Luo)](https://github.com/Andy-Dihong-Luo).
+- [Export] Add an option `print.pureHtml` ([#1310](https://github.com/yzhang-gh/vscode-markdown/issues/1310)).
+- [Table formatter] Add range format support ([#1361](https://github.com/yzhang-gh/vscode-markdown/pull/1361)). Thanks, [PeaceShi (@peaceshi)](https://github.com/peaceshi).
+- [List continuation] New `onEnterKey` logic so as to align with other editors ([#1364](https://github.com/yzhang-gh/vscode-markdown/pull/1364)). Thanks, [@HughLink](https://github.com/HughLink).
+- Add action buttons (e.g. toggle bold, italic) to the editor toolbar, you can enable it with a new option `showActionButtons` ([#1358](https://github.com/yzhang-gh/vscode-markdown/issues/1358)). Thanks, [PeaceShi (@peaceshi)](https://github.com/peaceshi).
+- Support [GFM alerts](https://github.com/orgs/community/discussions/16925) ([#1350](https://github.com/yzhang-gh/vscode-markdown/issues/1350)). Thanks, [PraZ (@prazdevs)](https://github.com/prazdevs).
+
+### Fixes
+
+- Fix `when` conditions of the `closePreview` commands/keybindings ([#1263](https://github.com/yzhang-gh/vscode-markdown/issues/1263)).
+- Remove the default key binding <kbd>Alt</kbd>+<kbd>c</kbd> on Mac ([#1285](https://github.com/yzhang-gh/vscode-markdown/issues/1285)).
+- [Auto preview] Fix conditions (Jupyter Notebook, VS Code comment widget) of the `autoShowPreviewToSide` feature ([#1288](https://github.com/yzhang-gh/vscode-markdown/pull/1288), thanks, [Dihong Luo (@Andy-Dihong-Luo)](https://github.com/Andy-Dihong-Luo)), ([#1342](https://github.com/yzhang-gh/vscode-markdown/issues/1342)).
+- [Export] No long convert `.md` to `.html` if the links are GitHub urls ([#1324](https://github.com/yzhang-gh/vscode-markdown/issues/1324)).
+- [Export] Now correctly convert `.md#anchor` type links ([#1347](https://github.com/yzhang-gh/vscode-markdown/issues/1347)).
+- [List continuation] Check option `editor.acceptSuggestionOnEnter` ([#1367](https://github.com/yzhang-gh/vscode-markdown/issues/1367)).
+
+<!--  -->
+
+- **v3.6.2 (2024.01.15)** Fix "GFM alerts" exported HTML styles ([#1386](https://github.com/yzhang-gh/vscode-markdown/issues/1386)).
+
+### Others
+
+- [i18n] Update Chinese translations ([#1286](https://github.com/yzhang-gh/vscode-markdown/pull/1286)). Thanks, [Dihong Luo (@Andy-Dihong-Luo)](https://github.com/Andy-Dihong-Luo).
+
+## 3.5.1 (2023.03.26)
+
+### Fixes
+
+- Quarto support, [#618](https://github.com/yzhang-gh/vscode-markdown/issues/618) follow-up ([#1199](https://github.com/yzhang-gh/vscode-markdown/pull/1199)). Thanks, [Dongdong Kong (@kongdd)](https://github.com/kongdd).
+- [List renumbering] Incorrect second-level list renumbering on line delete ([#1155](https://github.com/yzhang-gh/vscode-markdown/issues/1155)).
+- [Toggle list] A bug in multi-line case ([#1203](https://github.com/yzhang-gh/vscode-markdown/issues/1203)).
+- [HTML] A bug that generates duplicated heading ids ([#1232](https://github.com/yzhang-gh/vscode-markdown/issues/1232)).
+
+### Others
+
+- [i18n] Add Russian translations ([#1201](https://github.com/yzhang-gh/vscode-markdown/pull/1201)). Thanks, [Sergey Romanov (@Serhioromano)](https://github.com/Serhioromano).
+- Fix the Shields build status badge ([#1215](https://github.com/yzhang-gh/vscode-markdown/pull/1215)). Thanks, [James H (@hughesjs)](https://github.com/hughesjs).
+- Remove extra spaces when pasting links on selected text ([#1245](https://github.com/yzhang-gh/vscode-markdown/pull/1245)). Thanks, [auh (@fanlushuai)](https://github.com/fanlushuai).
+- [Math] KaTeX v0.16.4
+- [Completion] Disable path completions as VS Code now has built-in support.
+- [Completion] Always exclude `.git` from completions.
+
+## 3.5.0 (2022.11.20)
 
 ### New
 
 - [TOC] Use `<!-- omit from toc -->` to omit a certain section from the table of contents. `<!-- omit in toc -->` is still supported for backward compatibility ([#1118](https://github.com/yzhang-gh/vscode-markdown/issues/1118)).
+- [List continuation] The continuation of task list should now has the same behavior as other editors ([#1138](https://github.com/yzhang-gh/vscode-markdown/pull/1138)). Thanks, [@yy0931](https://github.com/yy0931).
+- [List] New option `list.toggle.candidate-markers` to custom list markers when you use command `Toggle list` ([#1145](https://github.com/yzhang-gh/vscode-markdown/pull/1145)). Thanks, [@petergithub](https://github.com/petergithub).
+- Add a new option `bold.indicator` so you can use either `**` or `__` for bold text ([#1174](https://github.com/yzhang-gh/vscode-markdown/pull/1174)). Thanks, [@krsche](https://github.com/krsche) and [Samuel Weinhardt (@samuel-weinhardt)](https://github.com/samuel-weinhardt).
+- [R Markdown] Add support for R Markdown and a new option `extraLangIds` which accepts only `rmd` ~~and `qmd`~~ for now. ([#618](https://github.com/yzhang-gh/vscode-markdown/issues/618)). Thank [Dongdong Kong (@kongdd)](https://github.com/kongdd) for [#1198](https://github.com/yzhang-gh/vscode-markdown/pull/1198).
+- [GFM task lists] Checkboxes are now visually enabled but but not clickable ([#1189](https://github.com/yzhang-gh/vscode-markdown/pull/1189)). Thanks, [Ian Holst (@ianholst)](https://github.com/ianholst).
+
+### Fixes
+
+- Update word pattern for code spans and strikethrough ([#1130](https://github.com/yzhang-gh/vscode-markdown/pull/1130)). Thanks, [@Yarakashi-Kikohshi](https://github.com/Yarakashi-Kikohshi).
+- [Syntax decorations] of code spans ([#1134](https://github.com/yzhang-gh/vscode-markdown/pull/1134), [#1135](https://github.com/yzhang-gh/vscode-markdown/pull/1135)). Thanks, [@yy0931](https://github.com/yy0931).
+- [Ordered list renumbering] An issue with sub-list ([#1155](https://github.com/yzhang-gh/vscode-markdown/issues/1155)).
+- [HTML] Remove `<!-- omit from toc -->` comment in the title of the exported HTML ([#1175](https://github.com/yzhang-gh/vscode-markdown/issues/1175)).
+
+### Others
+
+- Code refactoring ([#1119](https://github.com/yzhang-gh/vscode-markdown/pull/1119)). Thanks, [@Lemmingh](https://github.com/Lemmingh).
+- [Math] Update math function completions.
+- Add custom context key for `onTabKey/onShiftTabKey` key binding. There should be less key binding conflicts in the future ([#1075](https://github.com/yzhang-gh/vscode-markdown/pull/1075)). Thanks, [@takumisoft68](https://github.com/takumisoft68).
+- Better blockquote continuation ([#1183](https://github.com/yzhang-gh/vscode-markdown/issues/1183)).
+- Reduce extension size by removing unused images ([#1161](https://github.com/yzhang-gh/vscode-markdown/issues/1161)). Thanks, [Kid (@kidonng)](https://github.com/kidonng).
 
 ## 3.4.3 (2022.4.24)
 
